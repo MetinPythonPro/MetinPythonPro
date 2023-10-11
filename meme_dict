@@ -1,0 +1,17 @@
+meme_dict = {
+            "CRINGE": "Garip ya da utandırıcı bir şey",
+            "LOL": "Komik bir şeye verilen cevap",
+            "LOL" : "komik bir şeye verilen cevap",
+            "CRINGE" : "garip ya da utandırıcı bir şey",
+            "ROFL" : "bir şakaya karşılık cevap",
+            "SHEESH" : "onaylamamak",
+            "CREEPY" : "korkunç",
+            "AGGRO" : "agresifleşmek/sinirlenmek"
+            }
+while True:
+    word = input("Anlamadığınız bir kelime yazın (hepsini büyük harflerle yazın!): ")
+
+    if word in meme_dict.keys():
+        print("Bu sözcük", meme_dict[word], "anlamına geliyor.")
+    else:
+        print("Üzgünüz, bu sözcük sözlükte yok. :(")
