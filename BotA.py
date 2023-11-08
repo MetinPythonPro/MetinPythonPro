@@ -19,6 +19,10 @@ async def hello(ctx):
     await ctx.send(f'Hi {bot.user}! I am a chatbot!')
 
 @bot.command()
+async def help(ctx):
+    await ctx.send("Try these commands: $on_ready, $hello, $password, $bye, $cool, $choose, $coin.")
+
+@bot.command()
 async def password(ctx, passs: int):
     await ctx.send(gen_pass(passs))
 
