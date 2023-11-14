@@ -1,7 +1,9 @@
+from re import M
 import discord
 from discord.ext import commands
 from bot_mantik import *
 from BotA_ayarlar import *
+import os
 
 # ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
 intents = discord.Intents.default()
@@ -19,8 +21,12 @@ async def hello(ctx):
     await ctx.send(f'Hi {bot.user}! I am a chatbot!')
 
 @bot.command()
-async def help(ctx):
-    await ctx.send("Try these commands: $on_ready, $hello, $password, $bye, $cool, $choose, $coin.")
+async def emoji(ctx):
+    await ctx.send(emoji_olusturucu())
+
+@bot.command()
+async def _help(ctx):
+    await ctx.send("Try these commands:$hello, $password, $bye, $cool, $choose, $coin.")
 
 @bot.command()
 async def password(ctx, passs: int):
@@ -70,5 +76,34 @@ async def joined(ctx, member: discord.Member):
 async def cool(ctx):
     if ctx.invoked_subcommand is None:
         await ctx.send(f'No, {ctx.subcommand_passed} is not cool')
+
+@bot.command()
+async def duck(ctx):
+    image_url1 = get_duck_image_url()
+    await ctx.send(image_url1)
+
+@bot.command()
+async def dog(ctx):
+    image_url2 = get_dog_image_url()
+    await ctx.send(image_url2)
+
+@bot.command()
+async def fox(ctx):
+    image_url3 = get_fox_image_url()
+    await ctx.send(image_url3)
+
+@bot.command()
+async def code(ctx):
+    c=random.choices(os.listdir("images"))
+    with open(f'images/{c}', 'rb') as f:
+            picture = discord.File(f)
+            await ctx.send(picture)
+
+@bot.command()
+async def animal(ctx):
+    a=random.choices(os.listdir("imagesa"))
+    with open(f'imagesa/{a}', 'rb') as s:
+        picture2 = discord.File(s)
+        await ctx.send(picture2)
 
 bot.run(ayarlar["TOKEN"])
