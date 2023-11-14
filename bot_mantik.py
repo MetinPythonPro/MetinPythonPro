@@ -1,7 +1,8 @@
 import random
+import requests
 
 def gen_pass(pass_length):
-    elements = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    elements = "é!'^+%&/()=?_1234567890*-qwertyuıopğüQWERTYUIOPĞÜ@€¨~|asdfghjklşi,;´`>:<zxcvbnmöç.ZXCVBNMÖÇ|"
     password = ""
 
     for i in range(pass_length):
@@ -19,3 +20,21 @@ def yazi_tura():
         return "YAZI"
     else:
         return "TURA"
+
+def get_duck_image_url():    
+    url1 = 'https://random-d.uk/api/random'
+    res1 = requests.get(url1)
+    data1 = res1.json()
+    return data1['url']
+
+def get_dog_image_url():    
+    url2 = 'https://random.dog/woof.json'
+    res2 = requests.get(url2)
+    data2 = res2.json()
+    return data2['url']
+
+def get_fox_image_url():    
+    url3 = 'https://randomfox.ca/floof/'
+    res3 = requests.get(url3)
+    data3 = res3.json()
+    return data3['image']
