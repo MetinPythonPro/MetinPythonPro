@@ -94,16 +94,16 @@ async def fox(ctx):
 
 @bot.command()
 async def code(ctx):
-    c=random.choices(os.listdir("images"))
+    c=random.choice(os.listdir("images"))
     with open(f'images/{c}', 'rb') as f:
             picture = discord.File(f)
-            await ctx.send(picture)
+            await ctx.send(file=picture)
 
 @bot.command()
 async def animal(ctx):
-    a=random.choices(os.listdir("imagesa"))
+    a=random.choice(os.listdir("imagesa"))
     with open(f'imagesa/{a}', 'rb') as s:
         picture2 = discord.File(s)
-        await ctx.send(picture2)
+        await ctx.send(file=picture2)
 
 bot.run(ayarlar["TOKEN"])
